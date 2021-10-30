@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_connection_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="蓝牙连接状态"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.11" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_btmode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/button_connect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_btservice">
+
+        <RadioButton
+            android:id="@+id/radioButton_slave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="作为Client端使用"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton_master"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="作为Server端使用"
+            android:textSize="24sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="连接蓝牙"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_disconnect"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup_btmode" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.44" />
+
+    <Switch
+        android:id="@+id/switch_aircontrol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="空调"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton_fire" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton_fire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        android:textOff="点火"
+        android:textOn="熄火"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/switch_aircontrol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <Button
+        android:id="@+id/button_disconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="断开蓝牙"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_connect"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup_btmode" />
+
+    <Switch
+        android:id="@+id/switch_btservice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="蓝牙服务"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@color/teal_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_recvdata"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </ScrollView>
+
+    <CheckBox
+        android:id="@+id/checkBox_autoconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自动连接"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/switch_btservice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/switch_btservice" />
+
+    <Button
+        android:id="@+id/button_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:text="清空"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

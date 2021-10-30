@@ -1,5 +1,7 @@
 package cn.edu.neusoft.lgx.stm32app;
 
+import android.graphics.Color;
+
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
@@ -165,7 +167,7 @@ public class DynamicLineChartManager {
      *
      * @param numbers
      */
-    public void addEntry(List<datalist> numbers) {
+    public void addEntry(Datalist numbers) {
 
         if (lineDataSets.get(0).getEntryCount() == 0) {
             lineData = new LineData(lineDataSets);
@@ -175,28 +177,19 @@ public class DynamicLineChartManager {
             timeList.clear();
         }
         timeList.add(df.format(System.currentTimeMillis()));
-            Entry entry = new Entry(lineDataSet.getEntryCount(), numbers.get(numbers.size()-1).tem);
+            Entry entry = new Entry(lineDataSet.getEntryCount(), numbers.tem);
             lineData.addEntry(entry, 0);
             lineData.notifyDataChanged();
             lineChart.notifyDataSetChanged();
             lineChart.setVisibleXRangeMaximum(6);
             lineChart.moveViewToX(lineData.getEntryCount() - 5);
 
-            Entry entry2 = new Entry(lineDataSet.getEntryCount(), numbers.get(numbers.size()-1).hum);
+            Entry entry2 = new Entry(lineDataSet.getEntryCount(), numbers.hum);
             lineData.addEntry(entry2, 1);
             lineData.notifyDataChanged();
             lineChart.notifyDataSetChanged();
             lineChart.setVisibleXRangeMaximum(6);
             lineChart.moveViewToX(lineData.getEntryCount() - 5);
-
-//        for (int i = 0; i < numbers.size(); i++) {
-//            Entry entry = new Entry(lineDataSet.getEntryCount(), numbers.get(i));
-//            lineData.addEntry(entry, i);
-//            lineData.notifyDataChanged();
-//            lineChart.notifyDataSetChanged();
-//            lineChart.setVisibleXRangeMaximum(6);
-//            lineChart.moveViewToX(lineData.getEntryCount() - 5);
-//        }
     }
 
     /**

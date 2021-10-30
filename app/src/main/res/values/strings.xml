@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Stm32App</string>
+    <string name="temp">温度</string>
+    <string name="hemp">湿度</string>
+    <string name="max">最大</string>
+    <string name="min">最小</string>
+    <string name="temControl">温度控制</string>
+    <string name="hemContorl">湿度控制</string>
+    <string name="keep">保持</string>
+    <string name="bluetooth">蓝牙</string>
+    <string name="set">设置</string>
+    <string name="robot">助手</string>
+    <string name="sqlite">数据</string>
 </resources>
