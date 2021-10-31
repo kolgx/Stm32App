@@ -11,4 +11,8 @@
     <string name="set">设置</string>
     <string name="robot">助手</string>
     <string name="sqlite">数据</string>
+    <string name="temMaxLimit">温度上限</string>
+    <string name="temMinLimit">温度下限</string>
+    <string name="humMaxLimi">湿度上限</string>
+    <string name="humMinLimit">湿度下限</string>
 </resources>

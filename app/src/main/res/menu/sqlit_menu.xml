@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/allShow"
+        android:title="显示全部数据" />
+    <item android:title="警报筛选">
+        <menu>
+            <item
+                android:id="@+id/temHight"
+                android:title="温度过高" />
+            <item
+                android:id="@+id/temLow"
+                android:title="温度过低" />
+            <item
+                android:id="@+id/humHight"
+                android:title="湿度过高" />
+            <item
+                android:id="@+id/humLow"
+                android:title="湿度过低" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/allClear"
+        android:title="清空数据库" />
+</menu>

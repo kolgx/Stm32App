@@ -116,8 +116,15 @@ public class MainActivity extends AppCompatActivity {
         bluetoothManager.unbind();
     }
 
-    public void setButtonClick(View view){
+    @Override
+    protected void onRestart() {
+        super.onRestart();
         isRuleRefresh = true;
+    }
+
+    public void setButtonClick(View view){
+        Intent intent = new Intent(MainActivity.this,SetActivity.class);
+        startActivity(intent);
     }
 
     public void blueButtonClick(View view){
@@ -128,6 +135,11 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this,"跳转蓝牙失败",Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void sqlitButtonClick(View view){
+        Intent intent = new Intent(MainActivity.this,DataActivity.class);
+        startActivity(intent);
     }
 
     //创建服务事件监听器对象，用于接收服务的主动通知
@@ -199,11 +211,13 @@ public class MainActivity extends AppCompatActivity {
         else if(n%2 == 1)
             humControl.setText("加湿");
         else
-            temContorl.setText("保持");
+            humControl.setText("保持");
     }
 
     private void lineCharRefresh(Datalist data){
         if(isRuleRefresh){
+            Log.e(TAG, "lineCharRefresh: 刷新限制线");
+            dynamicLineChartManager.removeAllLimitLine();
             dynamicLineChartManager.setHightLimitLine(data.temMax,"温度上限", Color.RED);
             dynamicLineChartManager.setHightLimitLine(data.temMin,"温度下限", Color.RED);
             dynamicLineChartManager.setHightLimitLine(data.humMax,"湿度上限", Color.BLUE);

@@ -3,7 +3,9 @@ package cn.edu.neusoft.lgx.stm32app;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SearchTable {
@@ -61,9 +63,23 @@ public class SearchTable {
      * 筛选记录
      * @return 筛选记录，注意：需要判断是否为空
      */
-    public List<Datalist> getrecode(int n) {
+    public List<Datalist> getrecode(int n){
         List<Datalist> data = new ArrayList<>();
         String[] selectionArgs = new  String[]{String.valueOf(n)};
+        this.db.close();
+        return getrecode(selectionArgs,data);
+    }
+
+    public List<Datalist> getrecode(List<Integer> n){
+        List<Datalist> data = new ArrayList<>();
+        for(int i=0;i<n.size();i++){
+            data = getrecode(new String[]{String.valueOf(n.get(i))},data);
+        }
+        this.db.close();
+        return data;
+    }
+
+    private List<Datalist> getrecode(String[] selectionArgs, List<Datalist> data) {
         Cursor c = db.query(table,null,"worn=?",
                 selectionArgs,null,null,null);
         while (c.moveToNext())
@@ -75,7 +91,6 @@ public class SearchTable {
             fl.worn = c.getInt(c.getColumnIndex("worn"));
             data.add(fl);
         }
-        this.db.close();
         return data;
     }
 

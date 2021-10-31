@@ -249,6 +249,11 @@ public class DynamicLineChartManager {
         lineChart.invalidate();
     }
 
+    public void removeAllLimitLine(){
+        leftAxis.removeAllLimitLines();
+        lineChart.invalidate();
+    }
+
     /**
      * 设置描述信息
      *
