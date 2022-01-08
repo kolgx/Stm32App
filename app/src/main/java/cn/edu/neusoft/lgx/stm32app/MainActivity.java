@@ -137,6 +137,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void onRobotClick(View view){
+        Toast.makeText(MainActivity.this,"语音助手",Toast.LENGTH_SHORT).show();
+        try {
+            Intent Irobot = new Intent();
+            Irobot.setComponent(new ComponentName("com.neusoft.qiangzi.baiduyuyintest","com.neusoft.qiangzi.baiduyuyintest.MainActivity"));
+            startActivity(Irobot);
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this,"开启失败，未找到应用",Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void sqlitButtonClick(View view){
         Intent intent = new Intent(MainActivity.this,DataActivity.class);
         startActivity(intent);

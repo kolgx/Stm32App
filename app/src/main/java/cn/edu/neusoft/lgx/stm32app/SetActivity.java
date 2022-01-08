@@ -82,6 +82,7 @@ public class SetActivity extends AppCompatActivity {
             try {
                 bluetoothManager.sendText(String.valueOf(data.temMax*100+data.temMin)+
                         (data.humMax * 100 + data.humMin) +" ");
+                isSendSuccess = false;
             }catch (Exception e){
                 Toast.makeText(SetActivity.this,"发送数据体失败",Toast.LENGTH_SHORT).show();
             }
